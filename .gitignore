@@ -1,2 +1,26 @@
 .venv
+logs
+__pycache__/
 
+.vscode/
+.idea/
+
+.env
+.kaggle/
+
+# SQLite DBs
+*.db
+*.sqlite3
+
+# dbt artifacts
+dbt_packages/
+dbt_modules/
+target/
+manifest.json
+run_results.json
+profiles.yml
+
+# Data files
+data/raw/
+data/tmp/
+*.zip

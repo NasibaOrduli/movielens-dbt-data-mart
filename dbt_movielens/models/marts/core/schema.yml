@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_movie
+    columns:
+      - name: movie_id
+        tests: [not_null, unique]
+      - name: title
+        tests: [not_null]
+      - name: release_year
+      - name: imdbId
+        tests: [not_null]
+      - name: tmdbId
+        tests: [not_null]
+
+  - name: fact_ratings
+    columns:
+      - name: user_id
+        tests: [not_null]
+      - name: rating
+        tests:
+          - not_null
+
+  - name: dim_genre
+    columns:
+      - name: genre_id
+        tests: [not_null, unique]
+      - name: genre
+        tests: [not_null]
+
+  - name: bridge_movie_genre
+    columns:
+      - name: movie_id
+        tests: [not_null]
+      - name: genre_id
+        tests: [not_null]
+
+  - name: dim_genome_tag
+    description: "Tags used in the genome relevance scoring system"
+    columns:
+      - name: tag_id
+        tests: [not_null, unique]
+      - name: tag
+        tests: [not_null]
+

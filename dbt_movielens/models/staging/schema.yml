@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: main
+    tables:
+      - name: movies
+        columns:
+          - name: movieId
+            tests: [not_null, unique]
+          - name: title
+            tests: [not_null]
+      - name: ratings
+        columns:
+          - name: userId
+            tests: [not_null]
+          - name: movieId
+            tests: [not_null]
+          - name: rating
+            tests: [not_null]
+          - name: timestamp
+
+      - name: tags
+        columns:
+          - name: userId
+            tests: [not_null]
+          - name: movieId
+            tests: [not_null]
+          - name: tag
+            tests: [not_null]
+          - name: timestamp
+
+      - name: genome_tags
+        columns:
+          - name: tagId
+            tests: [not_null, unique]
+          - name: tag
+            tests: [not_null]
+
+      - name: genome_scores
+        columns:
+          - name: movieId
+            tests: [not_null]
+          - name: tagId
+            tests: [not_null]
+          - name: relevance
+            tests: [not_null]
+
+      - name: links
+        columns:
+          - name: movieId
+            tests: [not_null, unique]
+          - name: imdbId
+            tests: [not_null]
+          - name: tmdbId
+            tests: [not_null]
